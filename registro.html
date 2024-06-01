@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style2.css">
+  <title>Formulario Registro</title>
+  <script>
+    function validarFormulario(event) {
+      event.preventDefault(); // Evita el envío del formulario hasta que se valide
+
+      var nombres = document.getElementById('nombres').value;
+      var apellidos = document.getElementById('apellidos').value;
+      var correo = document.getElementById('correo').value;
+      var contraseña = document.getElementById('contraseña').value;
+      var mensajeError = '';
+
+      if (nombres === '') {
+        mensajeError += 'El campo "Nombre" es obligatorio.\n';
+      }
+      if (apellidos === '') {
+        mensajeError += 'El campo "Apellido" es obligatorio.\n';
+      }
+      if (correo === '') {
+        mensajeError += 'El campo "Correo" es obligatorio.\n';
+      }
+      if (contraseña === '') {
+        mensajeError += 'El campo "Contraseña" es obligatorio.\n';
+      }
+
+      if (mensajeError) {
+        alert(mensajeError);
+      } else {
+        alert('Formulario enviado correctamente');
+        // Aquí puedes agregar el código para avanzar a la siguiente sección o enviar el formulario
+      }
+    }
+  </script>
+</head>
+<body>
+  <section class="form-register">
+    <h4>Formulario Registro</h4>
+    <form onsubmit="validarFormulario(event)">
+      <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+      <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+      <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+      <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su Contraseña">
+      <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+      <input class="botons" type="submit" value="Registrar">
+    </form>
+    <p><a href="#">¿Ya tengo Cuenta?</a></p>
+  </section>
+</body>
+</html>

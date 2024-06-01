@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style2.css">
+  
+  <title>Formulario de Inicio de Sesión</title>
+
+  <script>
+    function validarFormularioInicioSesion(event) {
+      event.preventDefault();
+
+      var correo = document.getElementById('login-correo').value;
+      var contraseña = document.getElementById('login-contraseña').value;
+      var mensajeError = '';
+
+      if (correo === '') {
+        mensajeError += 'El campo "Correo" es obligatorio.\n';
+      }
+      if (contraseña === '') {
+        mensajeError += 'El campo "Contraseña" es obligatorio.\n';
+      }
+
+      if (mensajeError) {
+        alert(mensajeError);
+      } else {
+        alert('Formulario de inicio de sesión enviado correctamente');
+        // Aquí puedes agregar el código para enviar el formulario
+      }
+    }
+  </script>
+</head>
+<body>
+    <section class="form-register"> 
+        <div class="form-login">
+            <h4>Formulario Inicio de Sesión</h4>
+            <form onsubmit="validarFormularioInicioSesion(event)">
+            <input class="controls" type="email" name="correo" id="login-correo" placeholder="Ingrese su Correo">
+            <input class="controls" type="password" name="contraseña" id="login-contraseña" placeholder="Ingrese su Contraseña">
+            <input class="botons" type="submit" value="Iniciar Sesión">
+            </form>
+        </div>
+    </section>
+  
+</body>
+</html>
